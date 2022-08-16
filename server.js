@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
@@ -40,7 +40,7 @@ app.post("/login-with-instagram", (req, res) => {
     if (err) {
       res.send("Something went wrong please try again !");
     } else {
-      res.redirect('/thankyou')
+      res.redirect("/thankyou");
     }
   });
 });
